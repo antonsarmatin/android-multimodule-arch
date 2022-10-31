@@ -22,13 +22,6 @@ include ':core-network'
 
 include ':integration'
 
-//3 modules style
-//home
-//include ':feature-home-factory'
-//include ':feature-home-api'
-//include ':feature-home-impl'
-
-
 //package style
 include ':feature-details'
 include ':feature-home'
