@@ -1,0 +1,36 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "android-multimodule-arch"
+
+
+include ':app'
+
+include ':core-presentation'
+include ':core-network'
+
+include ':integration'
+
+//3 modules style
+//home
+//include ':feature-home-factory'
+//include ':feature-home-api'
+//include ':feature-home-impl'
+
+
+//package style
+include ':feature-details'
+include ':feature-home'
+
+
