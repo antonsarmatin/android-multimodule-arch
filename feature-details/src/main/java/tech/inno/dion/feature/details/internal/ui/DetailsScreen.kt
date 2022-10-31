@@ -26,6 +26,10 @@ data class DetailsScreen(
             factory.create("Assisted: $info")
         }
 
+        val model2 = getScreenModel {
+            DetailsComponentHolder.getComponent().getScreenModelFactory().create("Assisted: $info")
+        }
+
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,

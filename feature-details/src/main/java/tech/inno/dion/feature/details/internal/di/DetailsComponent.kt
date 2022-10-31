@@ -1,11 +1,12 @@
 package tech.inno.dion.feature.details.internal.di
 
+import com.example.core.presentation.di.PerFeature
 import com.example.core.presentation.di.ScreenModelProvidersComponent
 import dagger.Component
-import com.example.core.presentation.di.PerFeature
 import tech.inno.dion.feature.details.api.DetailsApi
 import tech.inno.dion.feature.details.api.DetailsDependencies
 import tech.inno.dion.feature.details.internal.ui.DetailsScreen
+import tech.inno.dion.feature.details.internal.ui.DetailsScreenModel
 
 @Component(
     dependencies = [DetailsDependencies::class],
@@ -18,6 +19,8 @@ internal abstract class DetailsComponent : DetailsApi {
     internal abstract val screenModelProvider: ScreenModelProvidersComponent
 
     internal abstract fun injectDetailsScreen(detailsScreen: DetailsScreen)
+
+    abstract fun getScreenModelFactory(): DetailsScreenModel.Factory
 
     companion object {
         //Можно и через Component.Factory, но тогда протечет более явно в ComponentHolder
