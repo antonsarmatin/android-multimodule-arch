@@ -12,9 +12,9 @@ import tech.inno.dion.feature.home.api.NavigateToDetails
 class HomeScreenModel @AssistedInject constructor(
     @Assisted navigator: Navigator,
     private val navigateToDetails: NavigateToDetails
-) : BaseScreenModel<HomeScreen.Action, HomeScreen.State>(
+) : BaseScreenModel<HomeScreenAction, HomeScreenState>(
     navigator = navigator,
-    initialState = HomeScreen.State()
+    initialState = HomeScreenState()
 ) {
 
     @AssistedFactory
@@ -22,10 +22,10 @@ class HomeScreenModel @AssistedInject constructor(
         fun create(navigator: Navigator): HomeScreenModel
     }
 
-    override fun onAction(action: HomeScreen.Action) {
+    override fun onAction(action: HomeScreenAction) {
         when (action) {
-            HomeScreen.Action.GoToDetailsClick -> navigateToDetails.openDetails(state.value.input)
-            is HomeScreen.Action.Input -> _state.update { it.copy(input = action.value) }
+            HomeScreenAction.GoToDetailsClick -> navigateToDetails.openDetails(state.value.input)
+            is HomeScreenAction.Input -> _state.update { it.copy(input = action.value) }
         }
     }
 }

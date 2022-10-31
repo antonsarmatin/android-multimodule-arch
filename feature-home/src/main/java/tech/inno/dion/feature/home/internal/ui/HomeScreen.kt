@@ -14,10 +14,10 @@ import com.example.core.presentation.foundation.BaseScreenModel
 import com.example.core.presentation.foundation.StateScreen
 import tech.inno.dion.feature.home.internal.di.HomeComponentHolder
 
-object HomeScreen : StateScreen<HomeScreen.Action, HomeScreen.State>() {
+object HomeScreen : StateScreen<HomeScreenAction, HomeScreenState>() {
 
     @Composable
-    override fun ScreenContent(state: State, onAction: (Action) -> Unit) {
+    override fun ScreenContent(state: HomeScreenState, onAction: (HomeScreenAction) -> Unit) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -28,12 +28,12 @@ object HomeScreen : StateScreen<HomeScreen.Action, HomeScreen.State>() {
             TextField(
                 modifier = Modifier.fillMaxWidth(),
                 value = state.input,
-                onValueChange = { onAction(Action.Input(it)) }
+                onValueChange = { onAction(HomeScreenAction.Input(it)) }
             )
             Spacer(modifier = Modifier.height(16.dp))
             Button(
                 modifier = Modifier.fillMaxWidth(),
-                onClick = { onAction(Action.GoToDetailsClick) },
+                onClick = { onAction(HomeScreenAction.GoToDetailsClick) },
                 enabled = state.input.isNotBlank()
             ) {
                 Text(text = "Go to Details")
@@ -42,21 +42,11 @@ object HomeScreen : StateScreen<HomeScreen.Action, HomeScreen.State>() {
     }
 
     @Composable
-    override fun bindModel(navigator: Navigator): BaseScreenModel<Action, State> {
+    override fun bindModel(navigator: Navigator): BaseScreenModel<HomeScreenAction, HomeScreenState> {
         return getScreenModel<HomeScreenModel, HomeScreenModel.Factory>(
             provider = HomeComponentHolder.getComponent().screenModelProvider
         ) { factory -> factory.create(navigator) }
     }
-
-    sealed class Action {
-        data class Input(val value: String) : Action()
-        object GoToDetailsClick : Action()
-    }
-
-    data class State(
-        val input: String = "",
-        val isLoading: Boolean = false
-    )
 
 }
 
