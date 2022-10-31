@@ -16,11 +16,6 @@ import tech.inno.dion.feature.home.internal.di.HomeComponentHolder
 
 object HomeScreen : StateScreen<HomeScreen.Action, HomeScreen.State>() {
 
-
-    init {
-        HomeComponentHolder.getComponent().injectHomeScreen(this)
-    }
-
     @Composable
     override fun ScreenContent(state: State, onAction: (Action) -> Unit) {
         Column(

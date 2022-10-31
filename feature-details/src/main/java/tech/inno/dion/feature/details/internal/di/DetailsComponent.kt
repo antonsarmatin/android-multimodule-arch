@@ -17,8 +17,6 @@ internal abstract class DetailsComponent : DetailsApi {
     //Get screen model provider as child subcomponent
     internal abstract val screenModelProvider: ScreenModelProvidersComponent
 
-    internal abstract fun injectDetailsScreen(detailsScreen: DetailsScreen)
-
     companion object {
         //Можно и через Component.Factory, но тогда протечет более явно в ComponentHolder
         fun initAndGet(detailsDependencies: DetailsDependencies): DetailsComponent {

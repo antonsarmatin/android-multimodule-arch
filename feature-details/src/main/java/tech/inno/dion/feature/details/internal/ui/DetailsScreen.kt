@@ -14,10 +14,6 @@ data class DetailsScreen(
     private val info: String
 ) : Screen {
 
-    init {
-        DetailsComponentHolder.getComponent().injectDetailsScreen(this)
-    }
-
     @Composable
     override fun Content() {
         val model = getScreenModel<DetailsScreenModel, DetailsScreenModel.Factory>(

@@ -17,8 +17,6 @@ internal abstract class HomeComponent : HomeApi {
     //Get screen model provider as child subcomponent
     internal abstract val screenModelProvider: ScreenModelProvidersComponent
 
-    internal abstract fun injectHomeScreen(homeScreenModel: HomeScreen)
-
     companion object {
         fun initAndGet(homeDependencies: HomeDependencies): HomeComponent {
             return DaggerHomeComponent.builder()
