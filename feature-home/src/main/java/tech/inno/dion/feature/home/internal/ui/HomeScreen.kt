@@ -43,9 +43,9 @@ object HomeScreen : StateScreen<HomeScreenAction, HomeScreenState>() {
 
     @Composable
     override fun bindModel(navigator: Navigator): BaseScreenModel<HomeScreenAction, HomeScreenState> {
-        return getScreenModel<HomeScreenModel, HomeScreenModel.Factory>(
-            provider = HomeComponentHolder.getComponent().screenModelProvider
-        ) { factory -> factory.create(navigator) }
+        return getScreenModel {
+            HomeComponentHolder.getComponent().homeScreenModelFactory.create(navigator)
+        }
     }
 
 }

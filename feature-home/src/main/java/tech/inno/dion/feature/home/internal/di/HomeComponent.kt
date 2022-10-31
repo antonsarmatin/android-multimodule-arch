@@ -6,16 +6,14 @@ import com.example.core.presentation.di.PerFeature
 import tech.inno.dion.feature.home.api.HomeApi
 import tech.inno.dion.feature.home.api.HomeDependencies
 import tech.inno.dion.feature.home.internal.ui.HomeScreen
+import tech.inno.dion.feature.home.internal.ui.HomeScreenModel
 
 @Component(
     dependencies = [HomeDependencies::class],
     modules = [HomeModule::class]
 )
 @PerFeature
-internal abstract class HomeComponent : HomeApi {
-
-    //Get screen model provider as child subcomponent
-    internal abstract val screenModelProvider: ScreenModelProvidersComponent
+internal interface HomeComponent : HomeApi {
 
     companion object {
         fun initAndGet(homeDependencies: HomeDependencies): HomeComponent {
@@ -24,5 +22,7 @@ internal abstract class HomeComponent : HomeApi {
                 .build()
         }
     }
+
+    val homeScreenModelFactory: HomeScreenModel.Factory
 
 }

@@ -33,9 +33,8 @@ data class DetailsScreen(
 
     @Composable
     override fun bindModel(navigator: Navigator): BaseScreenModel<DetailsScreenAction, DetailsScreenState> {
-        return getScreenModel<DetailsScreenModel, DetailsScreenModel.Factory>(
-            provider = DetailsComponentHolder.getComponent().screenModelProvider
-        ) { factory -> factory.create(navigator, info) }
+        return getScreenModel {
+            DetailsComponentHolder.getComponent().detailsScreenModelFactory.create(navigator, info)
+        }
     }
 }
-

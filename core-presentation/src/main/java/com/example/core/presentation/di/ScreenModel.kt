@@ -27,3 +27,10 @@ inline fun <reified T : ScreenModel, reified F : ScreenModelFactory> Screen.getS
         factory.invoke(screenModelFactory as F)
     }
 }
+
+@Composable
+inline fun <reified T : ScreenModel> Screen.getScreenModel(
+    noinline factory: () -> T,
+): T {
+    return rememberScreenModel(factory = factory)
+}

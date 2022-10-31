@@ -17,13 +17,4 @@ internal abstract class DetailsModule {
     @PerFeature
     abstract fun bindStarter(impl: DetailsStarterImpl) : DetailsStarter
 
-    //region ScreenModel
-    @Binds
-    @IntoMap
-    @ScreenModelFactoryKey(DetailsScreenModel.Factory::class)
-    abstract fun bindDetailsScreenModelFactory(
-        factory: DetailsScreenModel.Factory
-    ) : ScreenModelFactory
-    //endregion
-
 }

@@ -17,14 +17,4 @@ internal abstract class HomeModule {
     @PerFeature
     abstract fun bindStarter(impl: HomeStarterImpl): HomeStarter
 
-    //region ScreenModel
-    @Binds
-    @IntoMap
-    @ScreenModelFactoryKey(HomeScreenModel.Factory::class)
-    abstract fun bindHomeScreenModelFactory(
-        factory: HomeScreenModel.Factory
-    ) : ScreenModelFactory
-    //endregion
-
-
 }
