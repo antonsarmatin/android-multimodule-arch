@@ -15,7 +15,6 @@ import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -23,8 +22,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import cafe.adriel.voyager.navigator.CurrentScreen
-import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.tab.CurrentTab
 import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
 import cafe.adriel.voyager.navigator.tab.Tab
@@ -91,6 +88,7 @@ private fun RowScope.TabNavigationItem(tab: Tab) {
                 Icon(painter = tab.icon!!, contentDescription = tab.title)
                 if (tab is BadgeTab) {
                     Log.d("BADGE", "Badge tab")
+//                    val badge by tab.badgeProvider.badgeFlow.collectAsState(initial = TabBadgeOptions())
                     val badge by tab.badgeProvider.badgeFlow.collectAsState(initial = TabBadgeOptions())
                     //TODO ANIMATE
                     if (badge.state) {

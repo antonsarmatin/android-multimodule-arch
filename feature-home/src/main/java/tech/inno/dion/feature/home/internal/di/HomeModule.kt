@@ -6,8 +6,8 @@ import com.example.core.presentation.di.PerFeature
 import dagger.Provides
 import tech.inno.dion.feature.home.api.HomeStarter
 import tech.inno.dion.feature.home.internal.start.HomeStarterImpl
-import tech.inno.dion.feature.home.internal.ui.HomeTabBadgeManager
-import tech.inno.dion.feature.home.internal.ui.HomeTabBadgeProvider
+import tech.inno.dion.feature.home.internal.ui.tab.HomeTabBadgeManager
+import tech.inno.dion.feature.home.internal.ui.tab.HomeTabBadgeProvider
 import com.example.core.presentation.navigation.tab.TabBadgeProvider
 
 @Module

@@ -2,9 +2,10 @@ package tech.inno.dion.feature.home.internal.di
 
 import dagger.Component
 import com.example.core.presentation.di.PerFeature
+import com.example.core.presentation.navigation.tab.TabBadgeProvider
 import tech.inno.dion.feature.home.api.HomeApi
 import tech.inno.dion.feature.home.api.HomeDependencies
-import tech.inno.dion.feature.home.internal.ui.HomeScreenModel
+import tech.inno.dion.feature.home.internal.ui.screen.HomeScreenModel
 
 @Component(
     dependencies = [HomeDependencies::class],
@@ -21,6 +22,7 @@ internal interface HomeComponent : HomeApi {
         }
     }
 
+    val tabBadgeProvider: TabBadgeProvider
     val homeScreenModelFactory: HomeScreenModel.Factory
 
 }

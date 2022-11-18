@@ -1,4 +1,4 @@
-package tech.inno.dion.feature.home.internal.ui
+package tech.inno.dion.feature.home.internal.ui.screen
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button

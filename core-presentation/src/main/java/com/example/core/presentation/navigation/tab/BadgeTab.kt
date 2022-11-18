@@ -4,6 +4,7 @@ import cafe.adriel.voyager.navigator.tab.Tab
 
 interface BadgeTab : Tab {
 
+//    fun getProvider(): TabBadgeProvider
     val badgeProvider: TabBadgeProvider
 
 }
