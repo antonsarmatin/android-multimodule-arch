@@ -77,13 +77,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
 
-    //Voyager
-    implementation "cafe.adriel.voyager:voyager-navigator:1.0.0-rc02"
-    implementation "cafe.adriel.voyager:voyager-tab-navigator:1.0.0-rc02"
-    implementation "cafe.adriel.voyager:voyager-transitions:1.0.0-rc02"
-    implementation "cafe.adriel.voyager:voyager-androidx:1.0.0-rc02"
-    implementation "cafe.adriel.voyager:voyager-hilt:1.0.0-rc02"
-
     implementation 'com.google.dagger:dagger:2.44'
     kapt 'com.google.dagger:dagger-compiler:2.44'
 //    implementation 'com.google.dagger:hilt-android:2.44'

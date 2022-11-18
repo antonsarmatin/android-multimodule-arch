@@ -9,12 +9,12 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.Navigator
 import com.example.core.presentation.di.getScreenModel
 import com.example.core.presentation.foundation.BaseScreenModel
-import com.example.core.presentation.foundation.StateScreen
+import com.example.core.presentation.foundation.BaseScreen
 import tech.inno.dion.feature.details.internal.di.DetailsComponentHolder
 
 data class DetailsScreen(
     private val info: String
-) : StateScreen<DetailsScreenAction, DetailsScreenState>() {
+) : BaseScreen<DetailsScreenAction, DetailsScreenEvent, DetailsScreenState>() {
 
     @Composable
     override fun ScreenContent(state: DetailsScreenState, onAction: (DetailsScreenAction) -> Unit) {
@@ -32,7 +32,7 @@ data class DetailsScreen(
     }
 
     @Composable
-    override fun bindModel(navigator: Navigator): BaseScreenModel<DetailsScreenAction, DetailsScreenState> {
+    override fun bindModel(navigator: Navigator): BaseScreenModel<DetailsScreenAction, DetailsScreenEvent, DetailsScreenState> {
         return getScreenModel {
             DetailsComponentHolder.getComponent().detailsScreenModelFactory.create(navigator, info)
         }

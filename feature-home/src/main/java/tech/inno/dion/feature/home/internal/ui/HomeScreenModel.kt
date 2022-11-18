@@ -11,8 +11,9 @@ import tech.inno.dion.feature.home.api.NavigateToDetails
 
 class HomeScreenModel @AssistedInject constructor(
     @Assisted navigator: Navigator,
+    private val badgeManager: HomeTabBadgeManager,
     private val navigateToDetails: NavigateToDetails
-) : BaseScreenModel<HomeScreenAction, HomeScreenState>(
+) : BaseScreenModel<HomeScreenAction, HomeScreenEvent, HomeScreenState>(
     navigator = navigator,
     initialState = HomeScreenState()
 ) {
@@ -26,6 +27,8 @@ class HomeScreenModel @AssistedInject constructor(
         when (action) {
             HomeScreenAction.GoToDetailsClick -> navigateToDetails.openDetails(state.value.input)
             is HomeScreenAction.Input -> _state.update { it.copy(input = action.value) }
+            HomeScreenAction.DisableBadgeClick -> badgeManager.setBadge(false)
+            HomeScreenAction.EnableBadgeClick -> badgeManager.setBadge(true)
         }
     }
 }

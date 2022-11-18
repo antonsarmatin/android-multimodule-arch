@@ -25,5 +25,3 @@ include ':integration'
 //package style
 include ':feature-details'
 include ':feature-home'
-
-

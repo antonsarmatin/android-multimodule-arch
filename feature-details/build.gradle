@@ -54,9 +54,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    //Voyager
-    implementation "cafe.adriel.voyager:voyager-navigator:1.0.0-rc02"
-
     implementation 'com.google.dagger:dagger:2.44'
     kapt 'com.google.dagger:dagger-compiler:2.44'
 }

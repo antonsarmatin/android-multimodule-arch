@@ -12,7 +12,7 @@ class DetailsScreenModel @AssistedInject constructor(
     @Assisted navigator: Navigator,
     @Assisted info: String,
     networkClient: NetworkClient,
-) : BaseScreenModel<DetailsScreenAction, DetailsScreenState>(
+) : BaseScreenModel<DetailsScreenAction, DetailsScreenEvent, DetailsScreenState>(
     navigator = navigator,
     initialState = DetailsScreenState(
         info = info,

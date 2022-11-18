@@ -1,14 +1,14 @@
 package tech.inno.dion.feature.home.internal.di
 
-import com.example.core.presentation.di.ScreenModelFactory
-import com.example.core.presentation.di.ScreenModelFactoryKey
 import dagger.Binds
 import dagger.Module
-import dagger.multibindings.IntoMap
 import com.example.core.presentation.di.PerFeature
+import dagger.Provides
 import tech.inno.dion.feature.home.api.HomeStarter
 import tech.inno.dion.feature.home.internal.start.HomeStarterImpl
-import tech.inno.dion.feature.home.internal.ui.HomeScreenModel
+import tech.inno.dion.feature.home.internal.ui.HomeTabBadgeManager
+import tech.inno.dion.feature.home.internal.ui.HomeTabBadgeProvider
+import com.example.core.presentation.navigation.tab.TabBadgeProvider
 
 @Module
 internal abstract class HomeModule {
@@ -16,5 +16,16 @@ internal abstract class HomeModule {
     @Binds
     @PerFeature
     abstract fun bindStarter(impl: HomeStarterImpl): HomeStarter
+
+    @Binds
+    @PerFeature
+    abstract fun bindBadgeProvider(impl: HomeTabBadgeProvider): TabBadgeProvider
+
+    companion object {
+
+        @Provides
+        @PerFeature
+        fun provideBadgeManager() = HomeTabBadgeManager()
+    }
 
 }

@@ -1,3 +1,5 @@
 package tech.inno.dion.feature.details.internal.ui
 
-sealed class DetailsScreenAction
+import com.example.core.presentation.foundation.ScreenAction
+
+sealed class DetailsScreenAction : ScreenAction
